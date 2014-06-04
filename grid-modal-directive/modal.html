@@ -1,0 +1,25 @@
+<div role="dialog" tabindex="-1" class="modal ng-scope top am-fade-and-slide-top" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ng-click="$hide()" class="close" type="button">×</button>
+                <h4 ng-bind-html="title" class="modal-title ng-binding">Title</h4></div>
+            <div class="modal-body">
+                <h4>Edit</h4>
+
+                <form >
+                    <div ng-repeat="input in modalMetaData">
+                        <div class="form-group" ng-if="input.type == 'text'">
+                            <label>{{input.label}}</label>
+                            <input type="text" class="form-control" name="inputText" placeholder="{{input.placeholder}}" ng-model="editingRowCopy[input.field]">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="$hide()" class="btn btn-default" type="button">Close</button>
+                <button ng-click="saveRow()" class="btn btn-primary" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

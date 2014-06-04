@@ -1,0 +1,24 @@
+{
+  "name": "grid-popup-edit",
+  "version": "0.0.1",
+  "description": "Directive for edit all records of table in modal",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexDudarev/grid-modal-edit.git"
+  },
+  "keywords": [
+    "ng-grid",
+    "modal",
+    "edit"
+  ],
+  "author": "Alexey Dudarev",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/AlexDudarev/grid-modal-edit/issues"
+  },
+  "homepage": "https://github.com/AlexDudarev/grid-modal-edit"
+}

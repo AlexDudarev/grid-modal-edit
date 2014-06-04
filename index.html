@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>ng-grid workbench</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ng-grid.css"/>
+    <script type="text/javascript" src="largeLoad.js"></script>
+    <!--<script type="text/javascript" src="largeTestData.js"></script>-->
+    <script type="text/javascript" src="lib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui-1.9.1.custom.min.js"></script>
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui-1.9.1.custom.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.layout-latest.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="plugins/ng-grid-layout.js"></script>
+    <script type="text/javascript" src="js/ng-grid.debug.js"></script>
+    <script type="text/javascript" src="grid-modal-directive/gridModalEdit-controller.js"></script>
+    <script type="text/javascript" src="grid-modal-directive/gridModalEdit-directive.js"></script>
+    <script type="text/javascript" src="modelMetaData.js"></script>
+    <script type="text/javascript" src="data-factory.js"></script>
+    <script type="text/javascript" src="model-controller.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script>
+        angular.module('myApp', ['ngGrid', 'mgcrea.ngStrap', 'GridModalDirective',  'AppModule']);
+    </script>
+    <style type="text/css">
+        .ngRow.selected {
+            color: #ffffff;
+            font-weight: bold;
+            background-color: #76b617;
+            background-image: -webkit-linear-gradient(top, #76b617, #638911);
+            background-image: -moz-linear-gradient(top, #76b617, #638911);
+            background-image: -o-linear-gradient(top, #76b617, #638911);
+            background-image: -ms-linear-gradient(top, #76b617, #638911);
+            background-image: linear-gradient(top, #76b617, #638911);
+            -webkit-border-radius: 4px 4px 4px 4px;
+            -moz-border-radius: 4px 4px 4px 4px;
+            border-radius: 4px 4px 4px 4px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="modelController">
+    <div class="ui-layout-center">Center
+        <!--<div style="position: absolute;  left: 0; right: 0; top: 0; bottom: 0; overflow: hidden" ng-grid="gridOptions">-->
+        <!--</div>-->
+        <grid-modal-edit grid-modal-options="modelOptions">
+        </grid-modal-edit>
+    </div>
+    <div class="ui-layout-north">North</div>
+    <div class="ui-layout-south">South</div>
+    <div class="ui-layout-east">East</div>
+    <div class="ui-layout-west">West</div>
+</body>
+</html>
