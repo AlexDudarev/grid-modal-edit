@@ -1,6 +1,6 @@
-var appModule =  angular.module('AppModule', []);
+var appModule =  angular.module('AppModule', ['restangular']);
 
-appModule.factory('DataFactory', function () {
+appModule.factory('DataFactory', function (Restangular) {
     var DataFactory = {
         getData: function (pageSize, page, searchText, callback) {
             var data;

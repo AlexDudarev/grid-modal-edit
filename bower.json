@@ -1,0 +1,16 @@
+{
+  "name": "grid-popup-edit",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AlexDudarev/grid-modal-edit",
+  "authors": [
+    "Alexey Dudarev <alexey.dudarev@itechart-group.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

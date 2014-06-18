@@ -1,12 +1,14 @@
 /// <reference path="../plugins/ng-grid-reorderable.js" />
 /// <reference path="../ng-grid-1.0.0.debug.js" />
-var gridmodalModule = angular.module('GridModalDirective', []);
+var gridmodalModule = angular.module('GridModalDirective', ['restangular']);
 
 var plugins = {};
 
-gridmodalModule.controller('gridModalEditController', [ '$scope', '$modal',
-    function ($scope, $modal) {
+gridmodalModule.controller('gridModalEditController', [ '$scope', '$modal', 'RestFactory',
+    function ($scope, $modal, RestFactory) {
         var self = this;
+        var modalOptions = $scope.modalOptions;
+        var restOptions = $scope.restOptions;
         $('body').layout({
             applyDemoStyles: true,
             center__onresize: function (x, ui) {
@@ -16,13 +18,13 @@ gridmodalModule.controller('gridModalEditController', [ '$scope', '$modal',
         });
         plugins.ngGridLayoutPlugin = new ngGridLayoutPlugin();
         $scope.data = [];
-        $scope.modalMetaData = $scope.modalOptions.modalMetaData;
+        $scope.modalMetaData = modalOptions.modalMetaData;
         $scope.editingRow = null;
         $scope.editingRowCopy = null;
         $scope.totalServerItems = 0;
 
-        $scope.pagingOptions = $scope.modalOptions.pagingOptions;
-        $scope.filterOptions = $scope.modalOptions.filterOptions;
+        $scope.pagingOptions = modalOptions.pagingOptions;
+        $scope.filterOptions = modalOptions.filterOptions;
 
         $scope.modal = $modal({
             scope: $scope,
@@ -30,20 +32,30 @@ gridmodalModule.controller('gridModalEditController', [ '$scope', '$modal',
             show: false
         });
 
-        self.getPagedDataAsync = function (pageSize, page, searchText) {
-            setTimeout(function () {
-                $scope.modalOptions.getData(pageSize, page, searchText, function (pagedData, data) {
-                        $scope.data = pagedData;
-                        $scope.totalServerItems = data.length;
-                        if (!$scope.$$phase) {
-                            $scope.$apply();
+        if (modalOptions.useRest) {
+            RestFactory.setCollectionName(restOptions.collectionName);
+            self.getPagedDataAsync = function (pageSize, page, searchText) {
+                RestFactory.getCollection(function (result) {
+                    $scope.data = result;
+                    $scope.totalServerItems = result.length;
+                });
+            };
+        } else {
+            self.getPagedDataAsync = function (pageSize, page, searchText) {
+                setTimeout(function () {
+                    modalOptions.getData(pageSize, page, searchText, function (pagedData, data) {
+                            $scope.data = pagedData;
+                            $scope.totalServerItems = data.length;
+                            if (!$scope.$$phase) {
+                                $scope.$apply();
+                            }
                         }
-                    }
-                );
-            }, 100);
-        };
+                    );
+                }, 100);
+            };
+        }
 
-        $scope.columns = $scope.modalOptions.columns;
+        $scope.columns = modalOptions.columns;
         $scope.columns.push({ field: 'paid', width: '*', cellFilter: 'checkmark', enableCellEdit: false, cellTemplate: '<div class="ngCellText"><a class="btn" ng-click="EditRow($event,row.entity)">Edit</a></div>' });
 
 

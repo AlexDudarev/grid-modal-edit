@@ -5,7 +5,8 @@ gridmodalModule.directive('gridModalEdit', function () {
         // templateUrl: 'directive.html', // or // function(tElement, tAttrs) { ... },
         restrict: 'E',
         scope: {
-            modalOptions: '=gridModalOptions'
+            modalOptions: '=gridModalOptions',
+            restOptions: '='
         },
         controller: 'gridModalEditController'
     };

@@ -4,8 +4,10 @@
 
 appModule.controller('modelController', [ '$scope', 'DataFactory',
     function ($scope, DataFactory) {
+        $scope.title = '222';
         $scope.modelOptions = {
-            getData: DataFactory.getData,
+            useRest : true,
+            //getData: DataFactory.getData,
 
             pagingOptions: {
                 pageSizes: [25, 50, 100], //page Sizes
@@ -30,4 +32,15 @@ appModule.controller('modelController', [ '$scope', 'DataFactory',
                 { field: 'birthday', width: '120px', cellFilter: 'date', resizable: false, visible: false }
             ]
         };
+
+        $scope.restOptions = {
+            collectionName: 'projects',
+            requestInterceptor: function(elem, operation, what) {
+                if (operation === 'put') {
+                    elem._id = undefined;
+                    return elem;
+                }
+                return elem;
+            }
+        }
     }]);

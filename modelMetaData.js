@@ -15,3 +15,4 @@ var modelMetaData = [
         options: [{value: 'false', text: 'True'},{value: 'false', text: 'False'}]
     }
 ];
+

@@ -18,13 +18,18 @@
     <script type="text/javascript" src="js/ng-grid.debug.js"></script>
     <script type="text/javascript" src="grid-modal-directive/gridModalEdit-controller.js"></script>
     <script type="text/javascript" src="grid-modal-directive/gridModalEdit-directive.js"></script>
+    <script type="text/javascript" src="grid-modal-directive/rest-factory.js"></script>
     <script type="text/javascript" src="modelMetaData.js"></script>
     <script type="text/javascript" src="data-factory.js"></script>
     <script type="text/javascript" src="model-controller.js"></script>
+    <script type="text/javascript" src="rest-config.js"></script>
     <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
     <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/restangular/dist/restangular.min.js"></script>
+
     <script>
-        angular.module('myApp', ['ngGrid', 'mgcrea.ngStrap', 'GridModalDirective',  'AppModule']);
+        angular.module('myApp', ['ngGrid', 'mgcrea.ngStrap', 'GridModalDirective',  'AppModule', 'restangular']);
     </script>
     <style type="text/css">
         .ngRow.selected {
@@ -44,9 +49,11 @@
 </head>
 <body ng-app="myApp" ng-controller="modelController">
     <div class="ui-layout-center">Center
+        {{ title }}
+        {{ modelOptions }}
         <!--<div style="position: absolute;  left: 0; right: 0; top: 0; bottom: 0; overflow: hidden" ng-grid="gridOptions">-->
         <!--</div>-->
-        <grid-modal-edit grid-modal-options="modelOptions">
+        <grid-modal-edit grid-modal-options="modelOptions" rest-options="restOptions">
         </grid-modal-edit>
     </div>
     <div class="ui-layout-north">North</div>
