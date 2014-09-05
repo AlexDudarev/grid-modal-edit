@@ -6,11 +6,11 @@ appModule.controller('modelController', [ '$scope', 'DataFactory',
     function ($scope, DataFactory) {
         $scope.title = '222';
         $scope.modelOptions = {
-            useRest : true,
-            //getData: DataFactory.getData,
+            useRest : false,
+            getData: DataFactory.getData,
 
             pagingOptions: {
-                pageSizes: [25, 50, 100], //page Sizes
+                pageSizes: [25, 50, 100, 500], //page Sizes
                 pageSize: 25, //Size of Paging data
                 currentPage: 1 //what page they are currently on
             },

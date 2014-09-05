@@ -56,7 +56,14 @@ gridmodalModule.controller('gridModalEditController', [ '$scope', '$modal', 'Res
         }
 
         $scope.columns = modalOptions.columns;
-        $scope.columns.push({ field: 'paid', width: '*', cellFilter: 'checkmark', enableCellEdit: false, cellTemplate: '<div class="ngCellText"><a class="btn" ng-click="EditRow($event,row.entity)">Edit</a></div>' });
+        $scope.columns.push(
+            {
+                field: '',
+                width: '*',
+                cellFilter: 'checkmark',
+                enableCellEdit: false,
+                cellTemplate: '<div class="ngCellText"><a class="btn" ng-click="editRow($event,row.entity)">Edit</a></div>'
+            });
 
 
         $scope.$watch('pagingOptions', function () {
