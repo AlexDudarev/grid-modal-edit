@@ -10,7 +10,8 @@ Options:
 
 Example of object with options:
 
-```$scope.modelOptions = {
+```
+$scope.modelOptions = {
         getData: DataFactory.getData,
 
         pagingOptions: {
@@ -36,6 +37,7 @@ Example of object with options:
             { field: 'birthday', width: '120px', cellFilter: 'date', resizable: false, visible: false }
         ]
     }
+
 ```
 
 getData - method that get data from server with next parameters
@@ -47,7 +49,8 @@ pageOptions, filterOptions, columns - similar to ng-grid
 
 modelMetaData - array of objects according to which modal window is creating.
 
-```var modelMetaData = [
+```
+var modelMetaData = [
     {
         label: 'Name',
         field: 'name',
@@ -64,6 +67,7 @@ modelMetaData - array of objects according to which modal window is creating.
         options: [{value: 'false', text: 'True'},{value: 'false', text: 'False'}]
     }
 ];
+
 ```
 
 Each object of MetaData may contain next fields:
