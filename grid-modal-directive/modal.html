@@ -9,10 +9,40 @@
 
                 <form >
                     <div ng-repeat="input in modalMetaData">
+                        <!--text field-->
                         <div class="form-group" ng-if="input.type == 'text'">
                             <label>{{input.label}}</label>
-                            <input type="text" class="form-control" name="inputText" placeholder="{{input.placeholder}}" ng-model="editingRowCopy[input.field]">
+                            <input type="text" placeholder="{{input.placeholder}}" ng-model="editingRowCopy[input.field]">
                         </div>
+
+                        <!--text area-->
+                        <div class="form-group" ng-if="input.type == 'textarea'">
+                            <label>{{input.label}}</label>
+                            <textarea class="form-control" placeholder="{{input.placeholder}}" ng-model="editingRowCopy[input.field]">
+                            </textarea>
+                        </div>
+
+                        <!--checkbox-->
+                        <div class="form-group" ng-if="input.type == 'checkbox'">
+                            {{input.label}}:
+                            <input type="checkbox" data-ng-model="editingRowCopy[input.field]" ng-if="input.typeValue === 'boolean'">
+                            <input type="checkbox" data-ng-model="editingRowCopy[input.field]" ng-if="input.typeValue !== 'boolean'" ng-true-value="{{input.trueValue}}" ng-false-value="{{input.falseValue}}">
+                        </div>
+
+                        <!--select-->
+                        <div class="form-group" ng-if="input.type == 'select'">
+                            <label>{{input.label}}</label>
+                            <select data-ng-model="editingRowCopy[input.field]" data-ng-options="option.value as option.label for option in input.options">
+                            </select>
+                        </div>
+
+                        <!--radio button-->
+                        <div class="form-group" ng-if="input.type == 'radiobutton'">
+                            <div data-ng-repeat="radio in input.options">
+                                <input type="radio" class="form-control" ng-model="editingRowCopy[input.field]" value="{{radio.value}}"> {{radio.label}} <br />
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>
