@@ -1,55 +1,37 @@
 {
-    "name": "grid-popup-edit",
-    "version": "0.0.1",
-    "description": "Directive for edit all records of table in modal",
-    "main": "index.html",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AlexDudarev/grid-modal-edit.git"
-    },
-    "keywords": [
-        "ng-grid",
-        "modal",
-        "edit"
-    ],
-    "author": "Alexey Dudarev",
-    "license": "BSD-2-Clause",
-    "bugs": {
-        "url": "https://github.com/AlexDudarev/grid-modal-edit/issues"
-    },
-    "homepage": "https://github.com/AlexDudarev/grid-modal-edit",
-    "dependencies": {},
-    "devDependencies": {
-        "gulp": "^3.6.2",
-        "gulp-autoprefixer": "0.0.7",
-        "gulp-changed": "^0.3.0",
-        "gulp-clean": "^0.3.0",
-        "gulp-cleancss": "^0.2.1",
-        "gulp-concat-util": "^0.2.2",
-        "gulp-connect": "^2.0.5",
-        "gulp-coveralls": "^0.1.2",
-        "gulp-htmlmin": "^0.1.2",
-        "gulp-jshint": "^1.6.1",
-        "gulp-less": "^1.2.3",
-        "gulp-nginclude": "^0.4.4",
-        "gulp-ngmin": "^0.3.0",
-        "gulp-ngtemplate": "^0.2.1",
-        "gulp-open": "^0.2.8",
-        "gulp-rename": "^1.2.0",
-        "gulp-uglify": "^0.3.0",
-        "gulp-usemin": "^0.3.4",
-        "gulp-util": "^2.2.14",
-        "gulp-watch": "^0.6.5",
-        "jshint-stylish": "^0.2.0",
-        "karma": "^0.12.16",
-        "karma-coverage": "^0.2.4",
-        "karma-jasmine": "^0.1.5",
-        "karma-phantomjs-launcher": "^0.1.4"
-    },
-    "engines": {
-        "node": ">= 0.8.0"
-    }
+  "name": "grid-popup-edit",
+  "version": "0.0.1",
+  "description": "Directive for edit all records of table in modal",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexDudarev/grid-modal-edit.git"
+  },
+  "keywords": [
+    "ng-grid",
+    "modal",
+    "edit"
+  ],
+  "author": "Alexey Dudarev",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/AlexDudarev/grid-modal-edit/issues"
+  },
+  "homepage": "https://github.com/AlexDudarev/grid-modal-edit",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "jshint-stylish": "^0.2.0",
+    "karma": "^0.12.16",
+    "karma-coverage": "^0.2.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
 }
